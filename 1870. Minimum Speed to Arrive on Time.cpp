@@ -10,7 +10,17 @@ public:
         return time<=hour;
     }
 
-    int minSpeedOnTime(vector<int>& dist, double hour) {
+    int BruteForce(vector<int>& dist, double hour){
+        
+        for(int speed=1; speed<=10000000; speed++){
+            if(check(dist, speed, hour)){
+                return speed;
+            }
+        }
+        return -1;
+    }
+
+    int BinarySearch(vector<int>& dist, double hour){
         int start = 1, end = 10000000; //Range of speed
         
         int ans = -1;
@@ -27,4 +37,15 @@ public:
 
         return ans;
     }
+
+    int minSpeedOnTime(vector<int>& dist, double hour) {
+
+        // Brute Force;
+        // return BruteForce(dist, hour);
+
+        // Binary Search
+        return BinarySearch(dist, hour);
+    }
+    
+
 };
