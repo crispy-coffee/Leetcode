@@ -21,13 +21,32 @@ public:
         return false;
         */
 
+        /*
         // O(n) (concatenation) + O(n) (substring extraction) + O(n) (substring search) = O(n) 
         string ss = s+s;
         string temp = ss.substr(1, ss.size()-2);
         if(temp.find(s) == -1)
             return false;
         return true;
+        */
 
+        // n*root n
+        int size = s.size();
+        string str = "";
+        for(int i=size/2; i>0; i--){
+            if(size%i == 0){
+                str = s.substr(0, i);
+                string temp = "";
+                int times = size/i;
+                while(times--){
+                    temp += str;
+                }
+                if(temp == s)
+                    return true;
+            }
 
+        }
+
+        return false;
     }
 };
