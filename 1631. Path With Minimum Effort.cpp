@@ -68,7 +68,8 @@ public:
     }
 
     int minimumEffortPath(vector<vector<int>>& heights) {        
-        // dfs(0, 0, heights[0][0], 0, heights);
+        // TLE
+        // dfs(0, 0, heights[0][0], 0, heights); 
         // return effort;
         
         return DijkstraAlgo(heights);
